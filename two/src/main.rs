@@ -23,22 +23,29 @@ fn main() {
             &_ => todo!(),
         };
         let p2 = match second {
-            "X" => Rps::R, 
-            "Y" => Rps::P, 
-            "Z" => Rps::S, 
+            "X" => "lose", 
+            "Y" => "draw", 
+            "Z" => "win", 
             &_ => todo!(),
+        }; 
+        let cool = match (p1, p2) {
+            (Rps::R, "lose") => 3 + 0, 
+            (Rps::R, "draw") => 1 + 3, 
+            (Rps::R, "win") =>  2 + 6,
+            (Rps::P, "lose") => 1 + 0, 
+            (Rps::P, "draw") => 2 + 3,
+            (Rps::P, "win") => 3 + 6, 
+            (Rps::S, "lose") => 2 + 0,
+            (Rps::S, "draw") => 3 + 3, 
+            (Rps::S, "win") => 1 + 6,
+            (Rps::R, &_) | (Rps::P, &_) | (Rps::S, &_) => todo!()
         };
-        if p1 == Rps::R && p2 == Rps::P {
-            score = score + 6;
-        }
+        score = score + cool;
      }
     println!("Score {}", score);
 }
 
 // Info
-// Rock A, X, 1
-// Paper B, Y, 2
-// Scissors C, Z, 3
 // Win 6
 // Draw 3
 // Loss 0
