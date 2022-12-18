@@ -22,8 +22,8 @@ fn main() {
             .map(|word| word.parse().unwrap())
             .collect();
         println!("First {:?}, second {:?}", first_range, second_range);
-        if (first_range[0] <= second_range[0] && first_range[1] >= second_range[1])
-            || (second_range[0] <= first_range[0] && second_range[1] >= first_range[1])
+        if (first_range[0] <= second_range[0] && second_range[0] <= first_range[1])
+            || (second_range[0] <= first_range[0] && first_range[0] <= second_range[1])
         {
             score = score + 1;
         }
