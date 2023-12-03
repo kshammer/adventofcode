@@ -20,13 +20,13 @@ let testInput = [ "1abc2"; "pqr3stu8vwx"; "a1b2c3d4e5f"; "treb7uchet" ]
 
 let testCalibrationSum = solution1 testInput
 
-// printfn "test values first solution %O" testCalibrationSum
+printfn "test input problem1 %O" testCalibrationSum
 
 let actualInput = System.IO.File.ReadLines "input.txt" |> List.ofSeq
 
 let calibrationSum = solution1 actualInput
 
-// printfn "first puzzle %O" calibrationSum
+printfn "real input problem1 %O" calibrationSum
 
 // Solution 2
 
@@ -51,12 +51,12 @@ let convertStringToNumber (input: string) =
 
 let testInputPuzzleTwo = ["two1nine"; "eightwothree"; "abcone2threexyz"; "xtwone3four"; "4nineeightseven2"; "zoneight234"; "7pqrstsixteen"]
 
-let solution2 input = List.map convertStringToNumber input 
+let solution2 input = List.map convertStringToNumber input |> solution1
 
-let cool = solution2 testInputPuzzleTwo |> solution1
+let cool = solution2 testInputPuzzleTwo 
 
 printfn "test input problem2 %A" cool
 
-let nice = solution2 actualInput |> solution1
+let nice = solution2 actualInput 
 
 printfn "real input problem2 %O" nice
