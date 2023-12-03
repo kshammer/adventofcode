@@ -19,8 +19,6 @@ let getMatches (input: string) =
     (input.Split(":")[1]).Split(";") |> Array.toList
 
 let matchToRecord (input: string) =
-    let temp = { red = 0; blue = 0; green = 0 }
-
     input.Split(",")
     |> Array.toList
     |> List.fold
@@ -47,8 +45,7 @@ let validateMatch (input: BlockMatch) =
     else true
 
 let solution1 (input: string list) =
-    input
-    |> List.map inputToGame
+    List.map inputToGame input
     |> List.filter (fun game -> List.forall (validateMatch) game.matches)
     |> List.fold (fun acc elem -> acc + elem.id) 0
 
