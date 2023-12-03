@@ -32,10 +32,13 @@ let calibrationSum = solution1 actualInput
 
 let convertStringToNumber (input: string) = 
     input
-        .Replace("eightwo", "8wo")
-        .Replace("eighthree", "8hree")
-        .Replace("twone", "2ne")
-        .Replace("nineight", "9ight")
+        .Replace("eightwo", "82")
+        .Replace("eighthree", "83")
+        .Replace("twone", "21")
+        .Replace("nineight", "98")
+        .Replace("oneight", "18")
+        .Replace("fiveight", "58")
+        .Replace("threeight", "38")
         .Replace("one", "1")
         .Replace("two", "2")
         .Replace("three", "3")
