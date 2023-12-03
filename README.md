@@ -1,1 +1,2 @@
 # adventofcode
+dotnet fsi (code)
