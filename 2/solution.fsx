@@ -56,8 +56,27 @@ let testInputSolution = solution1 testInput
 
 printfn "test input problem1 %A" testInputSolution
 
-let actualInput = System.IO.File.ReadLines "input.txt" |> List.ofSeq
-
-let actualInputSolution = solution1 actualInput
+let actualInputSolution = System.IO.File.ReadLines "input.txt" |> List.ofSeq |> solution1
 
 printfn "actual input problem1 %A" actualInputSolution
+
+// Problem 2 
+
+let solution2(input: string list) =
+    List.map inputToGame input
+    |> List.map(fun game ->
+        let maxRed = List.fold(fun acc elem -> if elem.red > acc then elem.red else acc) 0 game.matches
+        let maxBlue = List.fold(fun acc elem -> if elem.blue > acc then elem.blue else acc) 0 game.matches
+        let maxGreen = List.fold(fun acc elem -> if elem.green > acc then elem.green else acc) 0 game.matches
+        maxRed * maxBlue * maxGreen
+    )
+    |> List.sum
+
+
+let testInputSolution2 = solution2 testInput
+
+printfn "test input problem2 %A" testInputSolution2
+
+let actualInputSolution2 = System.IO.File.ReadLines "input.txt" |> List.ofSeq |> solution2
+
+printfn "actual input problem2 %A" actualInputSolution2
