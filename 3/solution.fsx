@@ -76,14 +76,12 @@ let rec findSymbols (input: string, x: int, y: int, acc: (int * int) list) =
 
 
 
-
-// TODO can't use acc .length 
-let numberList =
+let numberList, _ =
     testInput
-    |> Array.fold (fun acc elem -> List.append (stringParser (elem, 0, acc.Length, List.Empty)) acc) []
+    |> Array.fold (fun (acc, i) elem -> List.append (stringParser (elem, 0, i, List.Empty)) acc, i + 1) ([], 0)
 
-let symbols =
+let symbols, _ =
     testInput
-    |> Array.fold (fun acc elem -> List.append (findSymbols (elem, 0, acc.Length, List.Empty)) acc) []
+    |> Array.fold (fun (acc, i) elem -> (List.append (findSymbols (elem, 0, i, List.Empty)) acc, i + 1)) ([], 0)
 
-printfn "%A" symbols
+// let answer = symbols |> List.fold(fun acc elem -> ) 0 
