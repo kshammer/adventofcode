@@ -1,2 +1,3 @@
 # adventofcode
-dotnet fsi (code)
+
+Every year attempt in a new language =) 
