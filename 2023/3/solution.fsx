@@ -47,7 +47,8 @@ let rec stringParser (input: string, x: int, y: int, acc: NumberCoord list) =
     try
         let numFirstChar = Seq.findIndex Char.IsNumber input
         let subString = input[numFirstChar..]
-        // figure out if the number is at the end of the line 
+        // figure out if the number is at the end of the line
+        // try using a match statement to break the flow 
         let numLastChar = Seq.findIndex (Char.IsNumber >> not) subString
         let num = subString[.. numLastChar - 1] |> int
         printfn "Num %A first char %A last char %A  x %A" num numFirstChar numLastChar x
